@@ -1,13 +1,13 @@
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-# import tensorflow as tf
+import tensorflow as tf
 # import cv2
-# from PIL import Image
-# import base64
-# import pickle
+from PIL import Image
+import base64
+import pickle
 from flask import Flask, request, jsonify
-# import numpy as np
+import numpy as np
 
 app = Flask(__name__)
 
