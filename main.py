@@ -6,9 +6,11 @@ from PIL import Image
 import base64
 import pickle
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import numpy as np
 
 app = Flask(__name__)
+CORS(app)
 
 def saveImg(imgData):
     imgData = base64.b64decode(imgData)
@@ -27,7 +29,7 @@ def getPrediction(filename):
     prediction = model.predict(img)
     return np.argmax(prediction)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
     return jsonify({"App Status": "All fine here, checkout POST"})
 
